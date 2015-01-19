@@ -20,7 +20,7 @@ public class SpeakingClockJob implements Job {
         try {
             for (int i = 0; i < count; i++) {
                 Thread.sleep(1000);
-                System.out.println("Beep");
+                System.out.println("Beep from class: " + this.toString());
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
