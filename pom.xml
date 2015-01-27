@@ -17,7 +17,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>demo.DemoApplication</start-class>
+        <start-class>uk.co.themoderngeek.quartz.speakingclock.Main</start-class>
         <java.version>1.7</java.version>
     </properties>
 
