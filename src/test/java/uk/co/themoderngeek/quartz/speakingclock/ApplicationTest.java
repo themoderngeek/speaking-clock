@@ -16,19 +16,19 @@ public class ApplicationTest extends AbstractTransactionalJUnit4SpringContextTes
     private SchedulerFactoryBean quartzScheduler;
 
     @Test
-    @Ignore
+  //  @Ignore
     public void test() throws SchedulerException {
         quartzScheduler.getScheduler().clear();
     }
 
     @Test
-    @Ignore
+   // @Ignore
     public void addJob() throws SchedulerException {
 
         JobDetail job = JobBuilder.newJob(SpeakingClockJob.class).withIdentity("speaking-clock", "group-1").build();
 
         Trigger trigger = TriggerBuilder.newTrigger().withIdentity("5-second-trigger", "group-1")
-                .withSchedule(CronScheduleBuilder.cronSchedule("0/1 * * * * ?"))
+                .withSchedule(CronScheduleBuilder.cronSchedule("0/5 * * * * ?"))
                 .build();
         quartzScheduler.getScheduler().scheduleJob(job, trigger);
     }
