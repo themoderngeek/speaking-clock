@@ -5,26 +5,15 @@
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 
-    <bean id="scheduler" class="org.springframework.scheduling.quartz.JobDetailFactoryBean"
-          p:jobClass="uk.co.themoderngeek.quartz.speakingclock.job.SpeakingClockJob"
-          p:durability="true" />
+    <bean id="quartzScheduler"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:configLocation="application.properties" />
 
-    <bean id="cronTrigger"  class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"
-          p:jobDetail-ref="scheduler"
-          p:cronExpression="0/5 * * * * ?" />
-
-    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-        <property name="jobDetails">
-            <list>
-                <ref bean="scheduler"/>
-            </list>
-        </property>
-
-        <property name="triggers">
-            <list>
-                <ref bean="cronTrigger"/>
-            </list>
-        </property>
-    </bean>
-
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="com.mysql.jdbc.Driver"
+          p:url="jdbc:mysql://localhost:3306/quartz"
+          p:username="${quartz.db.username}"
+          p:password="${quartz.db.password}" />
 </beans>
