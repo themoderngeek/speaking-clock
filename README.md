@@ -1,4 +1,6 @@
-# speaking-clock
-A simple example of using quartz to trigger a job every 5 seconds
 
-For more details see [my blog post on quartz](http://www.themoderngeek.co.uk/software-development/2015/01/19/quartz-scheduler-part-1.html)
+#Speaking clock
+
+The integration Branch is where the current working version from each post is located, this is the accumulation of work from each post. For the working version specific to each post there should be a link from the post to a branch. 
+
+For more details see [my blog posts on quartz](http://www.themoderngeek.co.uk/software-development)
